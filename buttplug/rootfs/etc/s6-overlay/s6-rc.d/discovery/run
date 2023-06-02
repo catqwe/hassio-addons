@@ -1,0 +1,22 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: buttplug
+# Send Discovery information to Home Assistant
+# ==============================================================================
+declare config
+
+# Wait for buttplug to start before continuing
+bashio::net.wait_for 8000
+
+# Create discovery config payload for Home Assistant
+config=$(bashio::var.json \
+    url "http://127.0.0.1:8000"
+)
+
+# Send discovery info
+if bashio::discovery "buttplug" "${config}" > /dev/null; then
+    bashio::log.info "Successfully send discovery information to Home Assistant."
+else
+    bashio::log.error "Discovery message to Home Assistant failed!"
+fi

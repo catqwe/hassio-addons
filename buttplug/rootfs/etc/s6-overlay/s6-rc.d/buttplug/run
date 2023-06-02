@@ -1,0 +1,9 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: buttplug
+# Runs the NodeJS daemon
+# ==============================================================================
+
+bashio::log.info "Starting Buttplug..."
+exec npm start

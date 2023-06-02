@@ -1,16 +1,23 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:14
 FROM $BUILD_FROM
 
 # Install requirements for add-on
 RUN \
   apk add --no-cache \
+    nginx \
     nodejs \
     npm
+
+COPY rootfs /
 
 COPY buttplug-test /
 RUN cd / && npm install --unsafe-perm
 
-COPY run.sh /
-RUN chmod a+x /run.sh
-
-CMD [ "/run.sh" ]
+# Labels
+LABEL \
+    io.hass.name="${BUILD_NAME}" \
+    io.hass.description="${BUILD_DESCRIPTION}" \
+    io.hass.arch="${BUILD_ARCH}" \
+    io.hass.type="addon" \
+    io.hass.version=${BUILD_VERSION} \
+    maintainer="Catqwe"
