@@ -1,0 +1,14 @@
+{
+    "name": "buttplug-test",
+    "version": "0.0.1",
+    "description": "Starter project buttplug hassio addon",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "author": "catqwe",
+    "license": "SEE LICENSE IN LICENSE",
+    "dependencies": {
+      "express": "^4.18.2"
+    }
+  }
