@@ -28,3 +28,6 @@ schema:
   ssl: bool
   certfile: str
   keyfile: str
+privileged:
+  - DAC_READ_SEARCH
+  - SYS_ADMIN
