@@ -13,7 +13,18 @@ arch:
 ports:
   80/tcp: null
 host_network: true
+map:
+  - ssl
 ingress: true
 ingress_port: 0
 ingress_stream: true
 panel_icon: mdi:fruit-pear
+options:
+  ssl: true
+  certfile: fullchain.pem
+  keyfile: privkey.pem
+schema:
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  ssl: bool
+  certfile: str
+  keyfile: str
