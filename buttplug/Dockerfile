@@ -10,7 +10,7 @@ RUN \
 
 COPY rootfs /
 
-COPY buttplug-test /
+COPY webui /
 RUN cd / && npm install --unsafe-perm
 
 # Labels

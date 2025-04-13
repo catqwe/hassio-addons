@@ -16,7 +16,7 @@ host_network: true
 map:
   - ssl
 ingress: true
-ingress_port: 0
+ingress_port: 8000
 ingress_stream: true
 panel_icon: mdi:fruit-pear
 options:
